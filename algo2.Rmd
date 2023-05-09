@@ -1,0 +1,111 @@
+---
+title: "Antibiothérapie proposée à J3 "
+# lang: "fr"
+output: 
+  pdf_document:
+    document : article 
+    fig_caption: yes
+    df_print: kable
+    tables: yes
+    toc: yes
+    toc_depth: 3
+longtable: true
+booktabs : true
+header-includes: 
+- \usepackage{longtable}
+- \usepackage{multirow}
+- \usepackage{booktabs}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{array}
+- \usepackage[utf8]{inputenc}   
+- \usepackage[T1]{fontenc}
+- \usepackage{fancyhdr}
+- \usepackage{graphicx} 
+---
+ 
+ 
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.6pt}
+  \setlength{\headheight}{13.59895pt}
+       \addtolength{\topmargin}{-1.59895pt}
+\fancyhead[R]{\footnotesize{https://rshiny.sbim-stlouis.org/ANTIBIONEED/}}
+\fancyhead[L]{\footnotesize{\includegraphics[scale=0.7]{www/LOGO-ATBNEED.png} }}
+\fancyfoot[C]{\footnotesize{\textit{Nom du document `r e2$parametre$docname`}}}
+
+\thispagestyle{fancy} 
+
+
+
+\centering \large  Identifiant patient :  I_0_I__I__I  -     I__I__I__I__I       -           I__II__I
+  
+\bigskip
+
+ 
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\multicolumn{2}{|c|}{\scshape Traitement en cours }\\
+\hline
+  \hline
+     \bfseries   Classe &       \bfseries  Traitement    \\ 
+   \hline
+`r e2$listeparEncours$class1` & `r e2$listeparEncours$ttencours1`   \\ \hline
+`r e2$listeparEncours$class2` & `r e2$listeparEncours$ttencours2`   \\ \hline
+`r e2$listeparEncours$class3` & `r e2$listeparEncours$ttencours3`   \\ \hline
+`r e2$listeparEncours$class4` & `r e2$listeparEncours$ttencours4`  \\ \hline
+\end{tabular}
+
+
+\bigskip
+
+
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{3}{|c|}{\scshape Posologie prescrite}\\
+\hline
+  \hline
+   \bfseries    Classe &    \bfseries   Traitement &  \bfseries   Posologie   \\ \hline
+   `r if (e2$listepar$tt1!="") paste(e2$listepar$class1,"&", e2$listepar$tt1, "&", e2$listepar$poso1,"\\tabularnewline ","\\hline")`   
+     `r if (e2$listepar$tt2!="") paste(e2$listepar$class2,"&", e2$listepar$tt2, "&", e2$listepar$poso2,"\\tabularnewline ","\\hline")`   
+       `r if (e2$listepar$tt3!="") paste(e2$listepar$class3,"&", e2$listepar$tt3, "&", e2$listepar$poso3,"\\tabularnewline ","\\hline")`   
+         `r if (e2$listepar$tt4!="") paste(e2$listepar$class4,"&", e2$listepar$tt4, "&", e2$listepar$poso4,"\\tabularnewline ","\\hline")`   
+         `r if (!is.null(e2$listepar$reco))  paste("Recommandations","&", "\\multicolumn{2}{m{10cm}| }{",e2$listepar$reco,"}","\\tabularnewline","\\hline")`  
+                  `r if (!is.null(e2$listepar$duree))  paste("Duree","&", "\\multicolumn{2}{m{10cm}| }{",e2$listepar$duree,"}","\\tabularnewline","\\hline")`  
+         
+\end{tabular}
+
+
+
+
+
+
+\bigskip
+
+\begin{tabular}{||l|c||}  
+\hline
+\multicolumn{2}{|c|}{\scshape Données saisies via l'application}\\
+\hline
+\hline
+   \bfseries   Question &   \bfseries   Réponse  \\ \hline
+`r if (length(e2$listeparSaisie$varPen2)>0)  paste(tr("Question2Allergie"),"&", e2$listeparSaisie$varPen2,"\\tabularnewline ","\\hline")` 
+`r if (length(e2$listeparSaisie$varDOCUMICRO)>0)  paste(tr("Question2Docum"),"&", e2$listeparSaisie$varDOCUMICRO,"\\tabularnewline ","\\hline")` 
+`r if (length(e2$listeparSaisie$varFI)>0)  paste(tr("Question2CliniqueIdent2"),"&", e2$listeparSaisie$varFI,"\\tabularnewline ","\\hline")`   
+`r if (length(e2$listeparSaisie$varCSINIT)>0)  paste(tr("Question2CSI"),"&", e2$listeparSaisie$varCSINIT,"\\tabularnewline ","\\hline")`   
+`r if (length(e2$listeparSaisie$varAC)>0)  paste(tr("Question2AmelC"),"&", e2$listeparSaisie$varAC,"\\tabularnewline ","\\hline")`   
+`r if (length(e2$listeparSaisie$varAGGRAV)>0)  paste(tr("Question2AggC"),"&", e2$listeparSaisie$varAGGRAV,"\\tabularnewline ","\\hline")`  
+`r if (length(e2$listeparSaisie$varCS)>0)  paste(tr("Question2CSA"),"&", e2$listeparSaisie$varCS,"\\tabularnewline ","\\hline")`    
+`r if (length(e2$listeparSaisie$varSAPPLA)>0)  paste(tr("Question2SAplasie"),"&", e2$listeparSaisie$varSAPPLA,"\\tabularnewline ","\\hline")`  
+`r if (length(e2$listeparSaisie$varFIEVRE)>0)  paste(tr("Question2Fievre"),"&", e2$listeparSaisie$varFIEVRE,"\\tabularnewline ","\\hline")`   
+`r if (length(e2$listeparSaisie$varFCI2)>0)  paste(tr("Question2CliniqueIdent2"),"&", e2$listeparSaisie$varFCI2,"\\tabularnewline","\\hline")`
+`r if (length(e2$listeparSaisie$varFCICS)>0) paste(tr("question2CliniqueIdent1"),"&",e2$listeparSaisie$varFCICS,"\\tabularnewline","\\hline")`   
+`r if (length(e2$listeparSaisie$varFCICS_P)>0) paste("Pneumonie interstitielle","&",e2$listeparSaisie$varFCICS_P,"\\tabularnewline","\\hline")`   
+`r if (length(e2$listeparSaisie$varFCICS_D)>0) paste("Dermo-hypodermite nécrotique","&",e2$listeparSaisie$varFCICS_D,"\\tabularnewline","\\hline")`   
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+ 
+\noindent\fbox{\parbox{\linewidth\fboxrule\fboxsep}{\centering Veuillez placer une copie de ce document dans le cahier d'observation ANTIBIONEED du patient ainsi qu'une copie dans son dossier médical}}

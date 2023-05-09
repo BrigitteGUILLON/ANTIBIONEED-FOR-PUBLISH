@@ -1,0 +1,99 @@
+---
+title: "Identification des germes à  J3 "
+# lang: "fr"
+output: 
+  pdf_document:
+    document : article 
+    fig_caption: yes
+    df_print: kable
+    tables: yes
+longtable: true
+booktabs : true
+header-includes: 
+- \usepackage{longtable}
+- \usepackage{multirow}
+- \usepackage{booktabs}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{array}
+- \usepackage[utf8]{inputenc}   
+- \usepackage[T1]{fontenc}
+- \usepackage{fancyhdr}
+---
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.6pt}
+  \setlength{\headheight}{13.59895pt}
+       \addtolength{\topmargin}{-1.59895pt}
+\fancyhead[R]{\footnotesize{https://rshiny.sbim-stlouis.org/ANTIBIONEED/}}
+\fancyhead[L]{\footnotesize{\includegraphics[scale=0.7]{www/LOGO-ATBNEED.png} }}
+\fancyfoot[C]{\footnotesize{\textit{Nom du document `r e2$parametre2$docname`}}} 
+ \thispagestyle{fancy} 
+ 
+
+ 
+\centering \large GERMES 
+
+ 
+```{r  , echo=F}
+
+
+if (e2$listeparTeste$germesSA==TRUE)     {kable(e2$listeparTeste$SAFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+   column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+if (e2$listeparTeste$germesSCN==TRUE)     {kable(e2$listeparTeste$SCNFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+   column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+ 
+
+if (e2$listeparTeste$germesEFEC==TRUE)     {kable(e2$listeparTeste$EFECFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+   column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+
+if (e2$listeparTeste$germesEFAE==TRUE)     {kable(e2$listeparTeste$EFAEFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+     column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+
+if (e2$listeparTeste$germesSTR==TRUE)     {kable(e2$listeparTeste$STRFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+     column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+
+ if (e2$listeparTeste$germesAGP==TRUE)     {kable(e2$listeparTeste$AGPFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+   column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+
+if (e2$listeparTeste$germesPA==TRUE) {  kable(e2$listeparTeste$PAFIRST, format = "latex", row.names=0,booktabs = T) %>%   
+      column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+if (e2$listeparTeste$germesE==TRUE)     {kable(e2$listeparTeste$EFIRST,format = "latex",row.names=0,booktabs = T)  %>%     
+   column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+
+if (e2$listeparTeste$germesAGN==TRUE)     {kable(e2$listeparTeste$AGNFIRST,format = "latex",row.names=0,booktabs = T)  %>%
+     column_spec(1, width = "12em")  %>%  column_spec(2, width = "12em")   }
+
+``` 
+   
+
+
+
+\begin{tabular}{|c|}  
+\hline
+   \bfseries   Germes Autres \\ \hline
+`r if (e2$listeparTeste$GERMCLOS==1)     paste("Clostridium difficile","\\tabularnewline","\\hline")` 
+`r if (e2$listeparTeste$GERMMYCO==1)     paste("Mycoplasma pneumoniae ","\\tabularnewline","\\hline")` 
+`r if (e2$listeparTeste$GERMLEGI==1)    paste("Legionella","\\tabularnewline ","\\hline")` 
+\hline
+\end{tabular}
+
+
+
+ 
+
+
