@@ -1,0 +1,74 @@
+NOMLIGNE,SURNOM,PA1,PA2,E1,E2,AGN1,AGN2,SCN1,SCN2,SA1,SA2,EFEC1,EFEC2,EFAE1,EFAE2,STR1,STR2,AGP1,AGP2,LIGNEMATRICE
+NOMLIGNE,SURNOM,Pseudomonas aeruginosa,,Enterobacterie,,Autre gram negatif,,Staphylocoque à coagulase négative,,Staphylocoque aureus,,Entérocoque fecalis,,Entérocoque faecium,,Streptocoque,,Autre gram positif,,
+Amoxicilline,AMOX,,,1,S ou I-R,1,S ou I-R,,,,,1,S ou I-R,1,S ou I-R,1,S ou I-R,1,S ou I-R,1
+Cloxacilline,CLOX,,,,,,,1,S ou I-R,1,S ou I-R,,,,,,,,,2
+Amoxicilline-Clavulanate,AMOXCLA,,,2,S ou I-R,2,S ou I-R,,,,,,,,,,,,,3
+Cefotaxime,CEFO,,,3,S ou I-R,3,S ou I-R,,,,,,,,,2,S ou I-R,2,S ou I-R,4
+Ceftriaxone,CEFTRI,,,4,S ou I-R,4,S ou I-R,,,,,,,,,3,S ou I-R,3,S ou I-R,5
+Ticarcilline,TICAR,1,S ou I-R,5,S ou I-R,5,S ou I-R,,,,,,,,,4,S ou I-R,4,S ou I-R,6
+Piperacilline,PIPE,2,S ou I-R,6,S ou I-R,6,S ou I-R,,,,,2,S ou I-R,2,S ou I-R,5,S ou I-R,5,S ou I-R,7
+Aztreonam,AZTR,3,S ou I-R,7,S ou I-R,7,S ou I-R,,,,,,,,,,,,,8
+Ceftazidime,CEFTA,4,S ou I-R,8,S ou I-R,8,S ou I-R,,,,,,,,,,,,,9
+Cefepime,CEFE,5,S ou I-R,9,S ou I-R,9,S ou I-R,,,,,,,,,6,S ou I-R,6,S ou I-R,10
+Piperacilline-tazobactam,PIPETAB,6,S ou I-R,10,S ou I-R,10,S ou I-R,,,,,3,S ou I-R,3,S ou I-R,7,S ou I-R,7,S ou I-R,11
+Imipenem,IMIP,7,S ou I-R,11,S ou I-R,11,S ou I-R,,,,,4,S ou I-R,4,S ou I-R,8,S ou I-R,8,S ou I-R,12
+Meropeneme,MERO,8,S ou I-R,12,S ou I-R,12,S ou I-R,,,,,5,S ou I-R,5,S ou I-R,9,S ou I-R,9,S ou I-R,13
+Ceftazidime-avibactam,CEFTAAVIB,9,S ou I-R,13,S ou I-R,13,S ou I-R,,,,,,,,,,,,,14
+Ceftolozane-tazobactam,CEFTOTAB,10,S ou I-R,14,S ou I-R,14,S ou I-R,,,,,,,,,,,,,15
+Cefiderocol,CEFI,11,S ou I-R,15,S ou I-R,15,S ou I-R,,,,,,,,,,,,,16
+Acide nalidixique,ACNA,,,100,S ou I-R,100,S ou I-R,,,,,,,,,,,,,17
+Norfloxacine,NORFLO,,,100,S ou I-R,100,S ou I-R,,,,,,,,,,,,,18
+Ofloxacine,OFLOX,,,16,S ou I-R,16,S ou I-R,,,,,,,,,,,,,19
+Levofloxacine,LEVO,,,17,S ou I-R,17,S ou I-R,,,,,,,,,,,,,20
+Ciprofloxacine,CIPRO,12,S ou I-R,18,S ou I-R,18,S ou I-R,,,,,,,,,,,,,21
+Cotrimoxazole,COTRI,,,19,S ou I-R,19,S ou I-R,,,,,,,,,,,,,22
+Tobramycine,TOBRA,13,S ou I-R,,,,,,,,,,,,,,,,,23
+Gentamicine,GENTA,14,S ou I-R,20,S ou I-R,20,S ou I-R,,,,,,,,,,,,,24
+Amikacine,AMIK,15,S ou I-R,21,S ou I-R,21,S ou I-R,,,,,,,,,,,,,25
+Clindamycine,CLINDA,,,,,,,,,,,,,,,,,,,26
+Vancomycine IV,VANCO,,,,,,,2,S ou I-R,2,S ou I-R,6,S ou I-R,6,S ou I-R,10,S ou I-R,10,S ou I-R,27
+Daptomycine,DAPTO,,,,,,,3,S ou I-R,3,S ou I-R,7,S ou I-R,7,S ou I-R,11,S ou I-R,11,S ou I-R,28
+Teicoplanine,TEICO,,,,,,,,,,,8,S ou I-R,8,S ou I-R,12,S ou I-R,12,S ou I-R,29
+Linezolide,LINE,,,,,,,4,S ou I-R,4,S ou I-R,9,S ou I-R,9,S ou I-R,13,S ou I-R,13,S ou I-R,30
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,

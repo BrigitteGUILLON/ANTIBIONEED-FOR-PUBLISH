@@ -1,0 +1,54 @@
+;
+; RStudio Connect server configuration file (generated)
+;
+; See the Appendices - Configuration section of the
+; RStudio Connect Admin Guide for details on the configuration file format.
+
+; [ExampleSection]
+; BooleanProperty = true
+; DecimalProperty = 0.217
+; StringProperty1 = "hello"
+; StringProperty2 = "escape \"quotes\" within a value"
+; MultiListProperty = "black"
+; MultiListProperty = "blue"
+; MultiListProperty = "green"
+; DurationProperty = 300s
+
+
+[Server]
+RVersionScanning = false
+;RVersion = "/opt/R/4.1.1"
+RVersion = "/opt/R/4.0.0"
+;RVersion = "/opt/R/3.5.3"
+
+
+SenderEmail = "rshiny@sbim.fr"
+
+EmailProvider = "SMTP"
+
+
+DataDir = "/var/lib/rstudio-connect"
+TempDir = "/tmp"
+Address = "http://rshiny.sbim-stlouis.org"
+
+[SMTP]
+Host = "localhost"
+Port = 587
+User = "service-user"
+Password = "service-password"
+
+[Python]
+Enabled = false
+
+[HTTP]
+Listen = :3939
+
+[Authentication]
+Provider = "password"
+
+[Database]
+Provider = "SQLite"
+
+[SQLite]
+Dir = "/var/lib/rstudio-connect/db"
+

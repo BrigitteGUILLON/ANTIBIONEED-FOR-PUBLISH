@@ -40,7 +40,6 @@ library(shinydashboard)
 library(shinyjqui)
 library(shinyjs)
 library(shinyWidgets)
- 
 library(shinyscreenshot)
 library(shinythemes)
 

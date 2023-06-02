@@ -1,0 +1,14 @@
+name: appli-antibioneed
+title: APPLI-ANTIBIONEED
+username: BGUILLON
+account: BGUILLON
+server: rshiny.sbim-stlouis.org
+hostUrl: https://rshiny.sbim-stlouis.org/__api__
+appId: 1
+bundleId: 320
+url: https://rshiny.sbim-stlouis.org/ANTIBIONEED/
+when: 1671528687.7425
+lastSyncTime: 1671528687.74251
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: ~$il-Type-Creation-Login.docx
