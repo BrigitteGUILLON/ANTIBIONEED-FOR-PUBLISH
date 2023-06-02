@@ -13,11 +13,12 @@ ALGO1  = T
 ALGO2 = T
 
 if (versionDemo==TRUE)  {Language_c <- "BR"}
+ 
 
 
-# versionAppli <- as.character("V14")
-# Changement de versiond application , changement de la liste de randomisation 
-versionAppli <- as.character("V14.1.1")
+# versionAppli <- as.character("V14") 
+# App : Version -> put  version in comment if new one 
+versionAppli <- as.character("V14.1.2")
 
 
 # Fermer l'application

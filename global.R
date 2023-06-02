@@ -71,13 +71,10 @@ library(xts)
 
 setwd(getwd())
  
+# versionDemo is True by default 
 
-versionTEST <- TRUE
+versionDemo <- TRUE
 
-versionDemo <- versionTEST
-
-
-projectName <- ""
 
 outputDir <- "PDFSAVE/"
 
@@ -90,17 +87,32 @@ labase <- "TT/"
 
 FeatherDir  <-   paste0("Feather/")
  
+
+
+# translation -------------------------------------------------------------
+
+# Set the language parameter  ("FR","EN","BR" .... )
+Language_c <- "FR"
+
+
+
+# Load the dictionary 
 load("traductions/translation.bin")
+
+
+# Language_c was initialize early, the value is the name of the column in the tab.
+# Function to read the text in the correct column  
 
 tr <- 
   function(text){ 
     sapply(text,function(s) translation[[s]][[Language_c]], USE.NAMES=FALSE) } 
 
- 
+# Center --------------------------------------------------
 
-  centres <- read_feather(paste0(FeatherDir,"Centres.feather")) 
-# 
-#   centres <- read_excel(ficalire3)
+ centres <- read_feather(paste0(FeatherDir,"Centres.feather")) 
+
+# Longitude and latitude to place the center on the map 
+
   centres$lat <- as.numeric(centres$lat)
   centres$long <- as.numeric(centres$long)
   
@@ -114,18 +126,22 @@ tr <-
   
   # readTT <- function () {read.xlsx(ficalire,sheetName ="ALGO1",row.names=1,col.names=1)}
   # 
+
+# Data --------------------------------------------------------------------
+
+  #  Treatment dictionary 
   
   Tableau_TT <-read_feather(paste0(FeatherDir ,"TT.feather"))
 
   ATB <-  read_feather(paste0(FeatherDir ,"ATB.feather"))
   
-  # readATB <- function () {read_xlsx(ficalire2,sheet ="ATB")}
+  # Treatment dictionary for Demo version 
   
   readATBDEMO <- read_feather(paste0(FeatherDir ,"ATB-DEMO.feather"))
   
 
   MATRICE_05  <-  read_feather(paste0(FeatherDir ,"ALGO2.feather")) 
-  
+   
 
   
   RECOMCOND  <-  read_feather(paste0(FeatherDir ,"RECOCOND.feather")) 
@@ -148,11 +164,7 @@ tr <-
   # 
   Tableau_Micro2 <- read_feather(paste0(FeatherDir ,"TTMicro2.feather"))
   
-  
-  
  
-
-  
   
   TabreadBR<- read_feather(paste0(FeatherDir ,"BR.feather"))
   TabreadBR <- data.frame(TabreadBR, row.names = 1)
