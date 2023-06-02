@@ -7,23 +7,56 @@ shinyServer(function(input, output,session) {
   # GetUser<-reactive({
   #   return(session$user)
   # })
-  # 
+
+  
+
+# Tab ---------------------------------------------------------------------
+
+  
+  # Source the tab if true, possibility to choose which to show (set the parameter in global.R) 
+  if(presentation == T)
+    source("panels/presentation/presentation_ui.r", local=T)
+  
+  
+  if(APPLI == T)
+    source("panels/appli/appli.r", local=T)
+  
+  if(carte == T)
+    source("panels/carte/carte.r", local=T,encoding="UTF-8")
+  
+  
+  if(ALGO1 == T)
+    source("panels/algo/algo.r", local=T )
+  
+  
+  if(ALGO2 == T)
+    source("panels/algop2/algop2.r", local=T)
   
   rv <- reactiveValues(download_flag = 0)
   rv2 <- reactiveValues(download_flag2 = 0)
   rv3 <- reactiveValues(download_flag3 = 0)
   
+
+# User --------------------------------------------------------------------
+
   
   UTILISATEUROK <- FALSE  
   UTILISATEUR <- reactiveVal(FALSE)  
+  # Default user : for development test
   
   logname <- "NOLOGNAME"
   difday <- NULL
   
+  # if inside a session ( deployed app), then memorize the user 
   if (length(session$user)>0) {logname <- session$user} 
   
   
-  # Liste des centres 
+
+
+# Visibility --------------------------------------------------------------
+
+  #Test if the user is referenced in one of the visibility table 
+  
   if (length(visibilite$DATEOUVERTURE[which(visibilite["LOGIN"]==logname)])>0)
     
   { datej <- visibilite$DATEOUVERTURE[which(visibilite["LOGIN"]==logname)] 
@@ -46,7 +79,7 @@ shinyServer(function(input, output,session) {
   
   
   
-  # 
+  # If user is referenced , calculation of the number of days, if > 1 then the user can view the app 
   
   
   
@@ -63,12 +96,15 @@ shinyServer(function(input, output,session) {
   
   if (difday>-1)  {UTILISATEUR(TRUE)}
   
+
+# Pdf naming --------------------------------------------------------------
+
   
   
   
   filenaming <- function() {
     
-    
+    # read the next free code , free code have "Login column" value as NA 
     Listecodes <-  read_feather(paste0(FeatherDir,"PDFCODE.feather"))
     
     ListecodesDISPO <- subset(Listecodes,is.na(Listecodes$LOGIN))
@@ -76,18 +112,15 @@ shinyServer(function(input, output,session) {
     #   
     #   
     lecode <- l$CODEPDF 
-    #   
+    #   update the code roxw with the user name on column LOGIN 
+    #.  this current code isnt anymore free 
     Listecodes$LOGIN[which(Listecodes["CODEPDF"]==lecode)]  <- logname
-    # Listecodes$DATEPDF[which(Listecodes["CODEPDF"]==lecode)]  <- format(Sys.Date()) 
-    # Listecodes$TIMEPDF[which(Listecodes["CODEPDF"]==lecode)]  <- format(Sys.time(), "%H")
-    # Listecodes$TIMEMINUTESPDF[which(Listecodes["CODEPDF"]==lecode)]  <- format(Sys.time(), "%M")
-    # print(lecode)
-    
+ 
+
     
     write_feather(Listecodes,paste0(FeatherDir,"PDFCODE.feather"))
     return(lecode)
   } 
-  
   
   filenamed <- function(lenom) {
     
@@ -97,55 +130,18 @@ shinyServer(function(input, output,session) {
     
   } 
   
-  
-  if(presentation == T)
-    source("panels/presentation/presentation_ui.r", local=T)
-  
-  
-  if(APPLI == T)
-    source("panels/appli/appli.r", local=T)
-  
-  if(carte == T)
-    source("panels/carte/carte.r", local=T,encoding="UTF-8")
-  
-  
-  if(ALGO1 == T)
-    source("panels/algo/algo.r", local=T )
-  
-  
-  if(ALGO2 == T)
-    source("panels/algop2/algop2.r", local=T)
-  
-  
-  
-  
-  
-  
-  
-  
+
+# one function per document type  -----------------------------------------
   
   filename <- function() { return(paste0("ANTIBIONEED-J0-", filenaming(),".pdf"))} 
   
-  
-  
   filename2 <- function() { return(paste0("ANTIBIONEED-J3-", filenaming(),".pdf"))} 
   
-  
-  
-  #' Title
-  #'
-  #' @return
-  #' @export
-  #'
-  #' @examples
   filename3 <- function() {  return(paste0("ANTIBIONEED-MATRICE-J3-", filenaming(),".pdf") )} 
   
   
-  
-  
-  
-  
-  print("server.R done")
+
+  # print("server.R done")
   
   
 })
