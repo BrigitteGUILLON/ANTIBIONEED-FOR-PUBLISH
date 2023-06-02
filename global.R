@@ -5,32 +5,38 @@ library(plyr)
 library(dplyr)
 library(dygraphs)
 library(feather)
+
+
 library(fs)
 library(formattable)
+library(ggiraph)
 library(gfonts)
 library(ggplot2) 
 library(ggrepel)
 library(gridExtra)
+library(gridtext)
 library(httpuv)
-library(knitr)
+
 library(kableExtra)
+library(knitr)
+ 
 
-library(rJava)
+
+# # library(rJava)
 library(leaflet)
-library(lubridate)
-library(raster)
-library(terra)
-
-# library(sp)
 
 library(linne)
+library(lubridate)
+library(plotly)
+
 library(profvis)
 
- 
-# library(lubridate)
+library(rmarkdown)
 # suppressWarnings(library(showtext))
 library(readr)
 library(readxl)
+ 
+
 library(shiny)
 
 library(shinyalert)
@@ -39,24 +45,37 @@ library(shinycssloaders)
 library(shinydashboard)
 library(shinyjqui)
 library(shinyjs)
-library(shinyWidgets)
+
+
 library(shinyscreenshot)
 library(shinythemes)
+library(shinyWidgets)
 
-# library(survival)
+
+library(sp)
 library(stringr)
-library(tippy)
-# library(tinytex)
-# library(tidyverse)
+library(survminer)
+library(survival)
+ 
 
-# library(xlsx)
+library(tidyr)
+library(tidyverse)
+
+library(tinytex)
+library(tippy)
+library(treemapify)
+
+
 library(xts)
+# library(xlsx)
 
 setwd(getwd())
+ 
 
+versionTEST <- TRUE
 
+versionDemo <- versionTEST
 
-versionDemo <- TRUE
 
 projectName <- ""
 
@@ -68,7 +87,7 @@ labase <- "TT/"
 # labase3 <- paste0("data/")
 
 
- 
+
 FeatherDir  <-   paste0("Feather/")
  
 load("traductions/translation.bin")
@@ -90,6 +109,8 @@ tr <-
   
   visibilite <-  read_feather(paste0(FeatherDir ,"Rando.feather"))
   
+  visibiliteTest <-  read_feather(paste0(FeatherDir ,"Rando_test.feather"))
+  
   
   # readTT <- function () {read.xlsx(ficalire,sheetName ="ALGO1",row.names=1,col.names=1)}
   # 
@@ -104,6 +125,8 @@ tr <-
   
 
   MATRICE_05  <-  read_feather(paste0(FeatherDir ,"ALGO2.feather")) 
+  
+
   
   RECOMCOND  <-  read_feather(paste0(FeatherDir ,"RECOCOND.feather")) 
   
@@ -125,9 +148,30 @@ tr <-
   # 
   Tableau_Micro2 <- read_feather(paste0(FeatherDir ,"TTMicro2.feather"))
   
+  
+  
+ 
 
   
-  if (versionDemo) {ATB <- readATBDEMO}
+  
+  TabreadBR<- read_feather(paste0(FeatherDir ,"BR.feather"))
+  TabreadBR <- data.frame(TabreadBR, row.names = 1)
+  
+  
+  if (versionDemo==TRUE) {
+  
+    
+    TabreadBRB <- read_feather(paste0(FeatherDir ,"BRB.feather"))
+    TabreadBRB <- data.frame(TabreadBRB, row.names = 1)
+    
+    TabreadBR <- TabreadBRB
+    
+    ATB <- readATBDEMO
+  
+    MATRICE_05  <-  read_feather(paste0(FeatherDir ,"ALGO2BR.feather")) 
+    
+    RECOMCOND  <-  read_feather(paste0(FeatherDir ,"RECOCONDBR.feather")) 
+    }
   
 
   TabreadB1 <- read_feather(paste0(FeatherDir ,"B1.feather"))
@@ -153,9 +197,10 @@ tr <-
   TabreadB5 <- read_feather(paste0(FeatherDir ,"B5.feather"))
   TabreadB5 <- data.frame(TabreadB5, row.names = 1)
   
+
   
-  TabreadBR <- read_feather(paste0(FeatherDir ,"BR.feather"))
-  TabreadBR <- data.frame(TabreadBR, row.names = 1)
+  
+  
   
   Tableau_Micro2 <- Tableau_Micro[,c("NOMLIGNE","SURNOM","CLOS","MYCO", "LEGI","LIGNEMATRICE")]
   
