@@ -28,6 +28,9 @@ step <- reactiveVal(0)
  
 
 
+# Step for algo 1 ---------------------------------------------------------
+
+
 
 AFFICHE_ALGO1_step0 <-  reactiveVal()
 AFFICHE_ALGO1_step0(TRUE)
@@ -73,15 +76,8 @@ observeEvent(
              ui = Box_RESULT_RECO2)
   }, once = TRUE)
 
-# observeEvent(
-#   AFFICHE_ALGO1_step0(),{
-#     insertUI(selector = "#Box_ERROR",where ="beforeEnd",
-#              ui = Box_ERROR)
-#   }, once = TRUE)
 
-
-
-
+# Calculation PAS 
 observeEvent(
   input$PAS, {
     insertUI(selector = "#pam",where ="beforeEnd",
@@ -131,7 +127,7 @@ BoxresultSOFA <-  fluidRow(
 
 
 
-  
+# Result Box for treatment 
 
 Box_RESULT_ALGO2 <- 
   box (id="Box_RESULT_ALGO2",
@@ -202,7 +198,7 @@ Box_RESULT_ALGO2 <-
 
 
 
-
+# Result Box for recommendations
 
 Box_RESULT_RECO2 <- 
   box (id="Box_RESULT_RECO2",
@@ -233,8 +229,6 @@ Box_RESULT_RECO2 <-
 
 fonction_calcul_Choc_Sep <- function () ({
   messageE(tr("message1Vaso"))
-  #   "Veuillez renseigner -> Nécessité de vasopresseur pour maintenir une PAM ≥ 65 mmHg oui/non")
-  # messageE("Veuillez renseigner -> Nécessité de vasopresseur pour maintenir une PAM ≥ 65 mmHg oui/non")
   validate(need(input$vaso<2,""))
   messageE("")
           
@@ -346,8 +340,6 @@ fonction_calcul_tt <- function () ({
   # Pneumonie 
   if (input$FCI==1){
     messageE(tr("message1Poumon"))
-    
-    # messageE("Veuillez renseigner -> Pneumonie interstitielle ou non systématisée oui/non ")
     validate(need(input$FCI_P<2,""))  
     messageE("")
     if (input$FCI_P==0)  {i <- paste0(i,0)}
@@ -356,7 +348,6 @@ fonction_calcul_tt <- function () ({
   # Cutané 
   if (input$FCI==6){
     messageE(tr("message1Dermo"))
-    # messageE("Veuillez renseigner -> Dermo-hypodermite nécrotique oui/non")
     validate(need(input$FCI_D<2,""))  
     messageE("")
     if (input$FCI_D==0)  {i <- paste0(i,0)}
@@ -366,7 +357,7 @@ fonction_calcul_tt <- function () ({
   
   
   
-  # 
+  # Intialization roxw for site of infection
   ligne <- paste0("FCI_",i)
   
   

@@ -110,6 +110,13 @@ appli_panel <- tabPanel("Appli",icon = icon("info"),
                                   div(
                                     versionAppli)
                               )),
+                          div(
+                            # class="panel panel-default",
+                            div(class="panel-body",
+                                strong(span( "Type Application :")),
+                                div(
+                                  TypeAppli)
+                            )),
                             div(
                               # class="panel panel-default",
                               div(class="panel-body",
@@ -123,7 +130,7 @@ appli_panel <- tabPanel("Appli",icon = icon("info"),
                               div(class="panel-body",
                                   strong(span( "Sauvegarde et gestion de projet ")),
                                   div(
-                                    ("gitlab")) 
+                                    ("https://github.com/BrigitteGUILLON/ANTIBIONEED-FOR-PUBLISH and private gitlab")) 
                               )) ,
                           div(
                             class="panel-body",

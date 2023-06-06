@@ -4,6 +4,9 @@ options(shiny.sanitize.errors = TRUE)
 # versionTeaser <- FALSE
 
 Language_c <- "FR"
+
+
+projectName <-"ANTIBIONEED"
  
 
 # Set tab to T if shown  
@@ -14,9 +17,11 @@ ALGO1  = T
 ALGO2 = T
 
 
+TypeAppli <- "TRUE APP"
 
-
-if (versionDemo==TRUE)  {Language_c <- "BR"}
+if (versionDemo==TRUE)  {
+  TypeAppli <- "TRAINING"
+  Language_c <- "BR"}
  
 
 
