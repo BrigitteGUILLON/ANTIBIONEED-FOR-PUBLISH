@@ -7,6 +7,7 @@ library(shinyWidgets)
 source("config.R")
  
 
+
 navBarPageARGS = list(projectName)
 
 
@@ -47,7 +48,7 @@ hauteur = 50
 navbarPagePerso = do.call(navbarPage, navBarPageARGS)
 
 
-
+if (versionDemo==TRUE) {
 
 
 shinyUI(
@@ -130,14 +131,100 @@ navbarPagePerso
 )
 
 
+
+}else
+{
+
+ui <- 
+  fluidPage(theme = shinytheme("flatly"),
+            
+            div(style="display: flex; align-items: center; width: 100%; justify-content: space-around;",
+                img(src="APHP.png",style="height:3rem"), 
+                img(src="INC.png",style="height:3rem"),
+                img(src="APP_IMPEC.png",style="height:3rem"),
+                img(src="LOGO-ATBNEED2.png",style="height:80px",id="logo2") ,
+                img(src="USL.png",style="height:60px"),
+                img(src="SBIM.png",style="height:3rem"),
+                img(src="Inserm.png",style="height:3rem")
+                
+            ),
+            
+            
+            # 
+            
+            tags$head(
+              
+              
+              # Note the wrapping of the string in HTML()
+              tags$style(HTML("
+              
+              
+      @import url('https://fonts.googleapis.com/css2?family=Baloo&display=swap');
+     
+      h1 {
+        font-family: 'Baloo', sans-serif;
+      }
+    ")),
+              
+              
+              tags$style(HTML("
+
+
+
+
+                          .navbar-default .navbar-brand{color: white;}
+                           .navbar-default .navbar-nav > .active > a,
+                           .navbar-default .navbar-nav > .active > a:focus,
+                           .navbar-default .navbar-nav > .active > a:hover {
+                                text-decoration:underline ;
+                                color: #000000;
+                                background-color: #fdecff;
+                            }
+
+")),
+              
+              
+              #               
+              #               tags$style(HTML("
+              # 
+              #          .navbar a[data-value='Antibiothérapie initiale aux urgences' ] {background-color: #fc913a;}
+              #           .navbar a[data-value='Réevaluation Antibiothérapie à J3'] {background-color: #ff4e50;}
+              #  
+              #   .navbar li:active {
+              # text-decoration:underline ;
+              #        }
+              #      
+              #  
+              # #   .navbar li:hover {
+              # # text-decoration:underline ;
+              # #        }
+              # 
+              # 
+              #                   "))
+              # ,
+            ),
+            
+            
+            
+            
+            div( 
+              h1(strong("ANTIBIONEED"), align="center", color =  box_step1_color, style = "font-family: 'Baloo'"),
+              br(),
+              navbarPagePerso
+            ))
+
+
+
+
+
 print("ui.R done.")
 
 
 
 
+ui <- secure_app(ui, choose_language = TRUE)
 
 
-
-
+}
 
 

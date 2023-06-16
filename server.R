@@ -8,6 +8,30 @@ shinyServer(function(input, output,session) {
   #   return(session$user)
   # })
 
+
+# ShinyManager ------------------------------------------------------------
+
+  
+  res_auth <- secure_server(
+    check_credentials = check_credentials("/home/bguillon/DB/antibioneed.sqlite")
+  )
+  # recuperation des infos utilisateurs
+  output$auth_output <- renderPrint({
+    reactiveValuesToList(res_auth)
+  })
+  
+  
+  observeEvent(res_auth$user, {
+    # all my server side functions here
+    print("executing server functions...")
+  })
+  
+  
+  # si besoin, des inputs sont créés
+  observe({
+    print(input$shinymanager_where)
+    print(input$shinymanager_language)
+  })
   
 
 # Tab ---------------------------------------------------------------------
@@ -47,7 +71,7 @@ shinyServer(function(input, output,session) {
   logname <- "NOLOGNAME"
   difday <- NULL
   
-  # if inside a session ( deployed app), then memorize the user 
+  # if inside a session (deployed app), then memorize the user 
   if (length(session$user)>0) {logname <- session$user} 
   
   

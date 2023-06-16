@@ -226,6 +226,9 @@ Box_RESULT_RECO2 <-
 # valid <- ""
 
 
+# Functions ---------------------------------------------------------------
+
+
 
 fonction_calcul_Choc_Sep <- function () ({
   messageE(tr("message1Vaso"))
@@ -239,6 +242,7 @@ fonction_calcul_Choc_Sep <- function () ({
   
 })
 
+# calculate the PAM 
 
 fonction_calcul_PAM <- function () ({
   

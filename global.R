@@ -45,6 +45,7 @@ library(shinycssloaders)
 library(shinydashboard)
 library(shinyjqui)
 library(shinyjs)
+library(shinymanager)
 
 
 library(shinyscreenshot)
@@ -73,7 +74,7 @@ setwd(getwd())
  
 # versionDemo is True by default 
 
-versionDemo <- TRUE
+versionDemo <- FALSE
 
 
 outputDir <- "PDFSAVE/"
